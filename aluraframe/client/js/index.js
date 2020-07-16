@@ -1,39 +1,38 @@
 var campos = [
-    document.querySelector('#data'),
-    document.querySelector('#quantidade'),
-    document.querySelector('#valor')
+  document.querySelector("#data"),
+  document.querySelector("#quantidade"),
+  document.querySelector("#valor"),
 ];
 
-var tbody = document.querySelector('table tbody');
+var tbody = document.querySelector("table tbody");
 
-document.querySelector('.form').addEventListener('submit', function(event) {
+document.querySelector(".form").addEventListener("submit", function (event) {
+  event.preventDefault();
 
-    event.preventDefault();
+  var tr = document.createElement("tr");
 
-    var tr = document.createElement('tr');
-
-    campos.forEach(function(campo) {
-        var td = document.createElement('td');
-        td.textContent = campo.value;
-        tr.appendChild(td);
-    });
-
-    var tdVolume = document.createElement('td');
-    tdVolume.textContent = campos[1].value * campos[2].value;
-
-    tr.appendChild(tdVolume);
-
-    tbody.appendChild(tr);
-
-    limparCampos();
-
-    alert('Incluído com sucesso');
+  campos.forEach(function (campo) {
+    var td = document.createElement("td");
+    td.textContent = campo.value;
+    tr.appendChild(td);
   });
 
-  function limparCampos() {
-    campos[0].value = '';
-    campos[1].value = 1;
-    campos[2].value = 0;
-    
-    campos[0].focus();
-  }
+  var tdVolume = document.createElement("td");
+  tdVolume.textContent = campos[1].value * campos[2].value;
+
+  tr.appendChild(tdVolume);
+
+  tbody.appendChild(tr);
+
+  limparCampos();
+
+  alert("Incluído com sucesso");
+});
+
+function limparCampos() {
+  campos[0].value = "";
+  campos[1].value = 1;
+  campos[2].value = 0;
+
+  campos[0].focus();
+}
