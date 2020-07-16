@@ -60,5 +60,19 @@
     </table>
     
     <script src="js/index.js"></script>
+    <script src="js/app/models/Negociacao.js"></script>
+
+    <script>
+    let hoje = new Date();
+    
+    let n1 = new Negociacao(hoje, 7, 700.00);
+
+    console.log(n1.data);
+
+    hoje.setDate(17);
+
+    console.log(n1.data);
+
+    </script>
 </body>
 </html>
